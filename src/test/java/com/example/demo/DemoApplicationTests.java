@@ -28,15 +28,24 @@ class DemoApplicationTests {
     }
     
 	@Test
-	void callController() {
+	void doGet() {
+		client.get()
+			.exchange()
+			.expectStatus().isOk()
+			.expectBody()
+			.jsonPath("$.end_date").exists();
+	}   
+	 
+	@Test
+	void cdoPost() {
 		DemoEntity demoEntity = new DemoEntity();
-			demoEntity.setEndDate(LocalDateTime.now().plusDays(7));
-			client.post()
-		       	.body(demoEntity)
-			    .exchange()
-			    .expectStatus().isOk()
-			    .expectBody()
-		        .jsonPath("$.end_date").exists();
+		demoEntity.setEndDate(LocalDateTime.now().plusDays(7));
+		client.post()
+			.body(demoEntity)
+			.exchange()
+			.expectStatus().isOk()
+			.expectBody()
+			.jsonPath("$.end_date").exists();
 	}
 			
 	@Test
