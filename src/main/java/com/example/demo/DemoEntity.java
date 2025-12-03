@@ -21,7 +21,7 @@ public class DemoEntity {
 	
 	@Override
 	public String toString() {
-		return "Tenant [id=" + id + ", endDate=" + endDate + "]";
+		return "DemoEntity [id=" + id + ", endDate=" + endDate + "]";
 	}
 
 	public int getId() {
