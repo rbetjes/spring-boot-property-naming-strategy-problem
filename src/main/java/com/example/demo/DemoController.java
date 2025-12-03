@@ -17,7 +17,8 @@ public class DemoController {
     }
     
     @PostMapping
-    public void create(@RequestBody DemoEntity demoEntity) {
+    public DemoEntity create(@RequestBody DemoEntity demoEntity) {
     	System.out.println("demoEntity: " + demoEntity);
+		return demoEntity;
     }
 }
